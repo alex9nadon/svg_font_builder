@@ -72,12 +72,20 @@
 <body>
 	<div class="wrap">
 		<h1><%= fontName %> - glyphs list</h1>
+
+		<h3>Example</h3>
+
+		<p _ngcontent-hpm-c6="" class="codesnippet">
+			&lt;i class="my-icon my-icon-name"&gt;
+			<br _ngcontent-hpm-c6="">
+			<br _ngcontent-hpm-c6="">&lt;/i&gt;
+		</p>
 		<ul class="glyphs-list">
 			<% _.each(glyphs, function(icon){ %>
 			<li>
-				<i class="icon-<%= icon.name %>"></i>
+				<i class="my-icon-demo <%= icon.name %>-demo"></i>
 				<code>\<%= icon.unicode[0].charCodeAt(0).toString(16) %></code>
-				<input type="text" value="icon-<%= icon.name %>" id="icon-<%= icon.name %>" />
+				<input type="text" value="my-icon <%= icon.name %>" id="icon-<%= icon.name %>" />
 				<button onclick="myFunction('<%= icon.name %>')">
 					<span>Copy to clipboard</span>
 				</button>
