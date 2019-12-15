@@ -8,8 +8,8 @@
 		url('<%= fontName %>.woff2?<%= fontDate %>') format('woff2'),
 		url('<%= fontName %>.woff?<%= fontDate %>') format('woff'),
 		url('<%= fontName %>.ttf?<%= fontDate %>') format('truetype');
-	font-style: normal;
-	font-weight: 400;
+		font-style: normal;
+		font-weight: 400;
 }
 
 [class^='icon-']:before,
@@ -28,3 +28,12 @@
 	-webkit-font-feature-settings: 'liga';
 	-webkit-font-smoothing: antialiased;
 }
+
+/*
+Glyphs list
+*/
+<% _.each(glyphs, function(icon){ %>
+.icon-<%= icon.name %>:before {
+	content: '\<%= icon.unicode[0].charCodeAt(0).toString(16) %>';
+}
+<% }) %>

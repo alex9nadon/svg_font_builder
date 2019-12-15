@@ -14,7 +14,16 @@ gulp.task('myfont', function () {
             centerHorizontally: true
         }))
         .on('glyphs', function (glyphs, options) {
+
             gulp.src('src/myfont.css')
+                .pipe(consolidate('underscore', {
+                    glyphs: glyphs,
+                    fontName: options.fontName,
+                    fontDate: new Date().getTime()
+                }))
+                .pipe(gulp.dest('myfont'));
+
+            gulp.src('src/myfont-demo.css')
                 .pipe(consolidate('underscore', {
                     glyphs: glyphs,
                     fontName: options.fontName,
